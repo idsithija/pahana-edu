@@ -12,7 +12,7 @@ public class DbConnector {
     // Database config
     private static final String URL = "jdbc:mysql://localhost:3306/pahana_edu";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "12345678";
     private static final String DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
 
     // Method to get DB connection
