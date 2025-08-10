@@ -3,6 +3,7 @@ package com.pahanaedu.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pahanaedu.dao.UserDAO;
 import com.pahanaedu.model.User;
+import com.pahanaedu.util.JwtValidator;
 import com.pahanaedu.util.PasswordHash;
 
 import javax.servlet.ServletException;
@@ -36,8 +37,10 @@ public class LoginServlet extends HttpServlet {
 
         Map<String, Object> response = new HashMap<>();
 
-        if (user != null && PasswordHash.checkPassword(loginRequest.password, user.getPassword())) {
+        if (user != null && PasswordHash.verifyPassword(loginRequest.password, user.getPassword())) {
+            String token = JwtValidator.generateToken(user.getUsername());
             response.put("success", true);
+            response.put("token", token);
             response.put("userId", user.getUserId());
             response.put("username", user.getUsername());
             response.put("role", user.getRole());

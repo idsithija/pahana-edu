@@ -7,7 +7,7 @@ public class PasswordHash {
         return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
     }
 
-    public static boolean checkPassword(String plainPassword, String hashedPassword) {
+    public static boolean verifyPassword(String plainPassword, String hashedPassword) {
         if (hashedPassword == null || !hashedPassword.startsWith("$2a$")) {
             throw new IllegalArgumentException("Invalid hashed password format");
         }
