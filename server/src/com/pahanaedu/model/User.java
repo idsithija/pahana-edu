@@ -6,8 +6,6 @@ public class User {
     private String password;
     private String role;
 
-    public User() {}
-
     public User(int userId, String username, String password, String role) {
         this.userId = userId;
         this.username = username;
@@ -15,7 +13,6 @@ public class User {
         this.role = role;
     }
 
-    // Getters
     public int getUserId() {
         return userId;
     }
@@ -32,7 +29,6 @@ public class User {
         return role;
     }
 
-    // Setters (optional if you need to modify fields)
     public void setUserId(int userId) {
         this.userId = userId;
     }
