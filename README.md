@@ -19,7 +19,6 @@ The Pahana Edu Bookshop Management System is a sophisticated enterprise-grade so
 - **Database:** PostgreSQL 12+ with JPA/Hibernate ORM
 - **Application Server:** Apache Tomcat 9.0 (production), Jetty (development)
 - **Build Tool:** Apache Maven 3.6+
-- **Security:** SHA-256 password hashing, custom authentication
 
 ## 🛠️ Installation and Setup
 
