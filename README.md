@@ -33,15 +33,24 @@ The Pahana Edu Bookshop Management System is a sophisticated enterprise-grade so
 
 ```bash
 # 1. Database Setup
-createdb pahanaedu_bookshop
-psql -c "CREATE USER pahanaedu_user WITH PASSWORD 'secure_password_123';"
-psql -c "GRANT ALL PRIVILEGES ON DATABASE pahanaedu_bookshop TO pahanaedu_user;"
-psql -d pahanaedu_bookshop -U pahanaedu_user -f src/main/resources/database-schema.sql
+createdb -U postgres pahanaedu_bookshop
 
-# 2. Build and Run
+psql -U postgres -d pahanaedu_bookshop -c "CREATE USER pahanaedu_user WITH PASSWORD 'secure_password_123';"
+
+# Grant privileges on the DB
+psql -U postgres -d pahanaedu_bookshop -c "GRANT ALL PRIVILEGES ON DATABASE pahanaedu_bookshop TO pahanaedu_user;"
+
+# Grant privileges on schema
+psql -U postgres -d pahanaedu_bookshop -c 'GRANT USAGE, CREATE ON SCHEMA public TO pahanaedu_user;'
+psql -U postgres -d pahanaedu_bookshop -c 'ALTER SCHEMA public OWNER TO pahanaedu_user;'
+
+# 2. Import schema using your new user
+psql -U pahanaedu_user -d pahanaedu_bookshop -f src/main/resources/database-schema.sql
+
+# 3. Build and Run
 mvn clean compile
 mvn jetty:run
 
-# 3. Access Application
+# 4. Access Application
 # URL: http://localhost:8080/pahana-edu-bookshop
 # Admin: admin/admin123 | Operator: operator/operator123
