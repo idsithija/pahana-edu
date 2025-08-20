@@ -21,34 +21,6 @@ The Pahana Edu Bookshop Management System is a sophisticated enterprise-grade so
 - **Build Tool:** Apache Maven 3.6+
 - **Security:** SHA-256 password hashing, custom authentication
 
-## 📁 Project Structure
-
-pahana-edu/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/pahanaedu/
-│   │   │       ├── controller/     # Servlet controllers
-│   │   │       ├── dao/           # Data Access Objects
-│   │   │       ├── service/       # Business logic services
-│   │   │       ├── model/         # JPA Entity classes
-│   │   │       └── util/          # Utility classes
-│   │   ├── resources/
-│   │   │   ├── META-INF/persistence.xml  # JPA configuration
-│   │   │   └── database-schema.sql      # Database schema
-│   │   └── webapp/
-│   │       ├── WEB-INF/
-│   │       │   ├── jsp/            # JSP pages
-│   │       │   ├── includes/       # Reusable components
-│   │       │   └── web.xml         # Web application config
-│   │       ├── css/                # Stylesheets
-│   │       ├── login.jsp           # Login page
-│   │       └── index.jsp           # Welcome page
-│   └── test/                       # JUnit test cases
-├── pom.xml                         # Maven configuration
-└── README.md                       # This file
-```
-
 ## 🛠️ Installation and Setup
 
 ### Prerequisites
